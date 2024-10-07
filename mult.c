@@ -52,7 +52,7 @@ int main(){
     for(int i = 0; i < A; i++){
         for(int j = 0; j < C; j++){
             int sum = 0;
-            #pragma omp simd reduction(+:sum)
+            #pragma for reduction(+:sum)
             for(int k = 0; k < B; k++){
                 sum += m1[i][k] * m2[k][j];
             }

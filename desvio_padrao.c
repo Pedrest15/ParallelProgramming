@@ -66,14 +66,14 @@ int main(){
     for(int j = 0; j < N; j++){
         media_col = 0;
 
-        #pragma omp simd reduction(+:media_col)
+        #pragma for reduction(+:media_col)
         for(int i = 0; i < N; i++){
             media_col += matriz[i][j];
         }
         media_col /= N;
 
         int sum = 0;
-        #pragma omp simd reduction(+:sum)
+        #pragma for reduction(+:sum)
         for(int i = 0; i < N; i++){
             sum += pow((matriz[i][j] - media_col), 2);
         }
