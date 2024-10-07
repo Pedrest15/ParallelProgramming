@@ -46,7 +46,9 @@ int main(){
             vetor[i] = 1;
         }
     
-        #pragma omp master
+        #pragma omp barrier
+
+        #pragma omp single
         {
             vetor[N/2] = N;
         }
